@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>Question Set #{{questionSet.id}}</mat-card-title>
+      <mat-card-subtitle>{{questionSet.relation}}</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <br>
+    <div>
+      <b>Question: </b>
+      {{questionSet.question}}
+    </div>
+    <div>
+      <b>Answer: </b>
+      {{questionSet.answer}}
+    </div>
+    <br>
+    <div>
+      <b>Perfect Answer: </b>
+      {{questionSet.perfect_answer}}
+    </div>
+    <br>
+
+    <mat-accordion multi>
+      @for (p of questionSet.pipelines; track p) {
+        <app-pipeline-result [pipelineResult]="p"></app-pipeline-result>
+      }
+    </mat-accordion>
+
+  </mat-card-content>
+</mat-card>

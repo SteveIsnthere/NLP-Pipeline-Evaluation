@@ -1,0 +1,67 @@
+<mat-expansion-panel style="border-radius: 0">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ pipelineResult.name }}
+    </mat-panel-title>
+    <mat-panel-description>
+      <span style="margin-right: 5px">Score</span>
+      <mat-progress-bar mode="determinate" value="{{pipelineResult.score*100}}"></mat-progress-bar>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <div>
+    <b>Follow-up question: </b>
+    <span>{{ pipelineResult.feedback }}</span>
+  </div>
+  <br>
+  <div>
+    <b>Follow-up answer: </b>
+    <span>{{ pipelineResult.feedback_answer }}</span>
+  </div>
+
+  <br>
+  <mat-divider></mat-divider>
+  <br>
+
+  <div>
+    <b>bleu geometric mean: </b>
+    <span>{{ pipelineResult.bleu_geo_mean }}</span>
+    <mat-progress-bar mode="determinate" value="{{pipelineResult.bleu_geo_mean*100}}"></mat-progress-bar>
+  </div>
+  <br>
+  <div>
+    <b>bleu1: </b>
+    <span>{{ pipelineResult.bleu[0] }}</span>
+    <mat-progress-bar mode="determinate" value="{{pipelineResult.bleu[0]*100}}"></mat-progress-bar>
+  </div>
+  <br>
+  <div>
+    <b>bleu2: </b>
+    <span>{{ pipelineResult.bleu[1] }}</span>
+    <mat-progress-bar mode="determinate" value="{{pipelineResult.bleu[1]*100}}"></mat-progress-bar>
+  </div>
+  <br>
+  <div>
+    <b>bleu3: </b>
+    <span>{{ pipelineResult.bleu[2] }}</span>
+    <mat-progress-bar mode="determinate" value="{{pipelineResult.bleu[2]*100}}"></mat-progress-bar>
+  </div>
+  <br>
+  <div>
+    <b>bleu4: </b>
+    <span>{{ pipelineResult.bleu[3] }}</span>
+    <mat-progress-bar mode="determinate" value="{{pipelineResult.bleu[3]*100}}"></mat-progress-bar>
+  </div>
+  <br>
+  <div>
+    <b>rouge: </b>
+    <span>{{ pipelineResult.rouge }}</span>
+    <mat-progress-bar mode="determinate" value="{{pipelineResult.rouge*100}}"></mat-progress-bar>
+  </div>
+  <br>
+  <div>
+    <b>meteor: </b>
+    <span>{{ pipelineResult.meteor }}</span>
+    <mat-progress-bar mode="determinate" value="{{pipelineResult.meteor*100}}"></mat-progress-bar>
+  </div>
+</mat-expansion-panel>
