@@ -13,7 +13,7 @@ import {MatDivider} from "@angular/material/divider";
     MatExpansionPanelDescription,
     MatExpansionPanelHeader,
     MatProgressBar,
-    MatDivider
+    MatDivider,
   ],
   templateUrl: './pipeline-result.component.html',
   styleUrl: './pipeline-result.component.css'

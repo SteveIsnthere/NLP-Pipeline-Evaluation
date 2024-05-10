@@ -9,3 +9,14 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #d7e3ff;
 }
+
+@keyframes item-appear {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+    rotate: -3deg;
+  }
+  100% {
+    opacity: 1;
+  }
+}
