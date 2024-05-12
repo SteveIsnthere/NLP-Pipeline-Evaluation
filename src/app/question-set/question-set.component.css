@@ -1,3 +1,4 @@
 #main {
   animation: item-appear 0.7s ease;
+  border-radius: 20px;
 }

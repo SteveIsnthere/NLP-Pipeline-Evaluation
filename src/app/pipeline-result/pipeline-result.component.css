@@ -1,3 +1,12 @@
 mat-expansion-panel{
+  border-radius: 15px
+}
 
+#stats{
+  margin-top: 20px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-row-gap: 2em;
+  grid-column-gap: 2em;
 }

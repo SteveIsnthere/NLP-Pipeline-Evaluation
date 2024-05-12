@@ -1,11 +1,16 @@
-<mat-expansion-panel style="border-radius: 0">
+<mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
       {{ pipelineResult.name }}
     </mat-panel-title>
     <mat-panel-description>
-      <span style="margin-right: 5px">Score</span>
-      <mat-progress-bar mode="determinate" value="{{pipelineResult.score*100}}"></mat-progress-bar>
+
+      <div style="display: flex; gap: 15px; align-items: center; width: 100%">
+        <span style="">Coverage Increase</span>
+        <mat-progress-bar mode="determinate" value="{{pipelineResult.score.more_info*100}}"
+                          style="max-width: 300px;"></mat-progress-bar>
+        <span>{{ Math.round(pipelineResult.score.more_info * 100) + '%' }}</span>
+      </div>
     </mat-panel-description>
   </mat-expansion-panel-header>
 
@@ -16,52 +21,29 @@
   <br>
   <div>
     <b>Follow-up answer: </b>
-    <span>{{ pipelineResult.feedback_answer }}</span>
+    <span>{{ pipelineResult.feedback_answer }}</span><br><br>
+    <span style="text-decoration: underline">Cleaned Final Answer</span><span>: </span>
+    {{ pipelineResult.cleaned_final_answer }}
   </div>
-
+  <br>
+  <br>
+  <app-indicator [name]="'NLP similarity'" [value]="pipelineResult.score.nlp_similarity"
+                 [color]="'accent'"></app-indicator>
+  <br>
+  <app-indicator [name]="'Coverage'" [value]="pipelineResult.score.coverage" [color]="'accent'"></app-indicator>
+  <br>
+  <app-indicator [name]="'Overlap'" [value]="pipelineResult.score.overlap" [color]="'accent'"></app-indicator>
   <br>
   <mat-divider></mat-divider>
   <br>
-
-  <div>
-    <b>bleu geometric mean: </b>
-    <span>{{ pipelineResult.bleu_geo_mean }}</span>
-    <mat-progress-bar mode="determinate" value="{{pipelineResult.bleu_geo_mean*100}}"></mat-progress-bar>
-  </div>
-  <br>
-  <div>
-    <b>bleu1: </b>
-    <span>{{ pipelineResult.bleu[0] }}</span>
-    <mat-progress-bar mode="determinate" value="{{pipelineResult.bleu[0]*100}}"></mat-progress-bar>
-  </div>
-  <br>
-  <div>
-    <b>bleu2: </b>
-    <span>{{ pipelineResult.bleu[1] }}</span>
-    <mat-progress-bar mode="determinate" value="{{pipelineResult.bleu[1]*100}}"></mat-progress-bar>
-  </div>
-  <br>
-  <div>
-    <b>bleu3: </b>
-    <span>{{ pipelineResult.bleu[2] }}</span>
-    <mat-progress-bar mode="determinate" value="{{pipelineResult.bleu[2]*100}}"></mat-progress-bar>
-  </div>
-  <br>
-  <div>
-    <b>bleu4: </b>
-    <span>{{ pipelineResult.bleu[3] }}</span>
-    <mat-progress-bar mode="determinate" value="{{pipelineResult.bleu[3]*100}}"></mat-progress-bar>
-  </div>
-  <br>
-  <div>
-    <b>rouge: </b>
-    <span>{{ pipelineResult.rouge }}</span>
-    <mat-progress-bar mode="determinate" value="{{pipelineResult.rouge*100}}"></mat-progress-bar>
-  </div>
-  <br>
-  <div>
-    <b>meteor: </b>
-    <span>{{ pipelineResult.meteor }}</span>
-    <mat-progress-bar mode="determinate" value="{{pipelineResult.meteor*100}}"></mat-progress-bar>
+  <b>Stats</b>
+  <div id="stats">
+    <app-indicator [name]="'bleu Geo Mean'" [value]="pipelineResult.score.bleu_geo_mean"></app-indicator>
+    <app-indicator [name]="'bleu1'" [value]="pipelineResult.score.bleu[0]"></app-indicator>
+    <app-indicator [name]="'bleu2'" [value]="pipelineResult.score.bleu[1]"></app-indicator>
+    <app-indicator [name]="'bleu3'" [value]="pipelineResult.score.bleu[2]"></app-indicator>
+    <app-indicator [name]="'bleu4'" [value]="pipelineResult.score.bleu[3]"></app-indicator>
+    <app-indicator [name]="'rouge'" [value]="pipelineResult.score.rouge"></app-indicator>
+    <app-indicator [name]="'meteor'" [value]="pipelineResult.score.meteor"></app-indicator>
   </div>
 </mat-expansion-panel>

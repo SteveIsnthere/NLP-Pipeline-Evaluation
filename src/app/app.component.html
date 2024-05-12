@@ -1,5 +1,5 @@
 <main>
-  @for (q of data; track q.id) {
+  @for (q of dataToDisplay; track q.id) {
     <app-question-set [questionSet]="q"></app-question-set>
   }
 </main>

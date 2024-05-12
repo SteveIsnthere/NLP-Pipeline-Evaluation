@@ -1,32 +1,39 @@
 <mat-card id="main">
   <mat-card-header>
     <mat-card-title-group>
-      <mat-card-title>Question Set #{{questionSet.id}}</mat-card-title>
-      <mat-card-subtitle>{{questionSet.relation}}</mat-card-subtitle>
+      <mat-card-title>Question Set #{{ questionSet.id }}</mat-card-title>
+      <mat-card-subtitle>{{ questionSet.relation }}</mat-card-subtitle>
     </mat-card-title-group>
   </mat-card-header>
   <mat-card-content>
     <br>
     <div>
-      <b>Question: </b>
-      {{questionSet.question}}
-    </div>
+      <b>Question</b><br>
+      {{ questionSet.question }}
+    </div><br>
     <div>
-      <b>Answer: </b>
-      {{questionSet.answer}}
+      <b>Answer</b><br>
+      {{ questionSet.answer }}<br><br>
+      <span style="text-decoration: underline">Cleaned Version</span><span>: </span>
+      {{ questionSet.cleaned_answer }}<br><br>
+      <span style="text-decoration: underline">Coverage</span><span>: </span>
+      <span style="font-weight: bold">{{ Math.round(questionSet.coverage*100)+'%' }}</span>
     </div>
     <br>
     <div>
-      <b>Perfect Answer: </b>
-      {{questionSet.perfect_answer}}
+      <b>Perfect Answer</b><br>
+      {{ questionSet.perfect_answer }}<br><br>
+      <span style="text-decoration: underline">Cleaned Version</span><span>: </span>
+      {{ questionSet.cleaned_perfect_answer }}
     </div>
+    <br>
     <br>
 
-    <mat-accordion multi>
+    <div style="display: flex; flex-direction: column; gap: 15px">
       @for (p of questionSet.pipelines; track p) {
         <app-pipeline-result [pipelineResult]="p"></app-pipeline-result>
       }
-    </mat-accordion>
+    </div>
 
   </mat-card-content>
 </mat-card>

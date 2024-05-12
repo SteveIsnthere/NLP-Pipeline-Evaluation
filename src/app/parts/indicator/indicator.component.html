@@ -1,6 +1,5 @@
-<mat-progress-spinner
-  class="example-margin"
-  color="primary"
-  mode="determinate"
-  value="{{value * 100}}">
-</mat-progress-spinner>
+<div>
+  <b class="title">{{ name }}: </b>
+  <span>{{ Math.round(value*100) + '%' }}</span>
+  <mat-progress-bar mode="determinate" value="{{value*100}}" color="{{color}}" style="max-width: 300px; margin-top: 10px"></mat-progress-bar>
+</div>
