@@ -1,5 +1,21 @@
 <main>
+  <div>
+    <button mat-stroked-button color="primary" [matMenuTriggerFor]="menu" style="border-radius: 100px">Sort By</button>
+  </div>
+
   @for (q of dataToDisplay; track q.id) {
     <app-question-set [questionSet]="q"></app-question-set>
   }
+  @if (!allDataDisplayed) {
+    <div style="display: flex; justify-content: center;">
+      <button mat-flat-button (click)="loadMore()">Load More</button>
+    </div>
+  }
 </main>
+
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="sortByID()">Question Set ID</button>
+  <button mat-menu-item (click)="sortByCoverage()">Original Answer Coverage</button>
+  <button mat-menu-item (click)="sortByPipelinePerformance()">Pipeline Performance</button>
+</mat-menu>
